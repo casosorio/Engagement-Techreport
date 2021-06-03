@@ -24,6 +24,7 @@ description: "This is a technical report that contains the development of the Ea
 ## run this code in the console prior to building book:
 #library(quanteda.textstats)
 library(parallel)
+library(quanteda.textstats)
 numCores <- detectCores()
 mc.cores = numCores
 
