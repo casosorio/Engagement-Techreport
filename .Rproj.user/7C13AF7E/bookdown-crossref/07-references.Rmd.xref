@@ -1,0 +1,43 @@
+h1:references References
+h1:appendix-appendices (APPENDIX) Appendices
+h1:timeline-of-events Timeline of events
+h2:spring-2019 Spring 2019
+h2:spring-2020 Spring 2020
+h3:february-4-2020 February 4, 2020
+h3:february-24-2020 February 24, 2020
+h3:structural-considerations Structural considerations
+h2:summer-2020 Summer 2020
+h1:pilot2 Pilot conditions
+tab:conditions Pilot administration ordering Condition 1
+tab:cond2 Pilot administration ordering Condition 2
+tab:cond3 Pilot administration ordering Condition 3
+tab:cond4 Pilot administration ordering Condition 4
+h1:corrs Correlations
+h2:inter-item-correlations Inter-Item correlations
+h2:scale-level-correlations Scale-level correlations
+h3:substantive-scales Substantive scales
+h3:attitudinal-scales Attitudinal scales
+h2:section 
+h1:rdrops Corrected item-total correlations
+h2:substantive-scale-marginal-level Substantive scale (marginal level)
+tab:rdrop1 Affective Items
+tab:rdrop2 Behavioral Items
+tab:rdrop3 Cognitive Items
+tab:rdrop4 Absorption Items
+tab:rdrop5 Vigor Items
+tab:rdrop6 Dedication Items
+h2:substantive-scale-cell-level Substantive scale (cell level)
+tab:rdrop7 Affective - Absorption Items
+tab:rdrop8 Affective - Vigor Items
+tab:rdrop9 Affective - Dedication Items
+tab:rdrop10 Cognitive - Absorption Items
+tab:rdrop11 Cognitive - Vigor Items
+tab:rdrop12 Cognitive - Dedication Items
+tab:rdrop13 Behavioral - Absorption Items
+tab:rdrop14 Behavioral - Vigor Items
+tab:rdrop15 Behavioral - Dedication Items
+h1:qualitative Qualitative item characteristics
+h2:frequency-distributions-by-dimension Frequency distributions by dimension
+h2:tables-of-qualitative-indices Tables of qualitative indices
+tab:freqtables Organized by Dale Chall aka includes Difficult Words
+
