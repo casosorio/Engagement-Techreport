@@ -1,6 +1,6 @@
 # Procedure
 
-![](procedure.jpg)
+![](Images/procedure.jpg)
 
 ## Pilot {#conds}
 

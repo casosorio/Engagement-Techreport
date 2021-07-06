@@ -33,7 +33,7 @@ knitr::write_bib(.packages(all.available = TRUE), "packages.bib")
 ```
 
 <center>
-![](EE.jpeg)
+![](Images/EE.jpeg)
 </center>  
 
 This is a report that documents the technical details regarding the development of the Eagle I.O Engagement survey.

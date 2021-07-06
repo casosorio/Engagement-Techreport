@@ -1,6 +1,6 @@
 # Analyses
 
-![](results.jpg)
+![](Images/results.jpg)
 
 
 ```{r data, echo=FALSE, warning=FALSE, message=FALSE}

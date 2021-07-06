@@ -1,6 +1,6 @@
 # Instrument creation
 
-![](develop.jpg)
+![](Images/develop.jpg)
 
 ## Intended Structure {#ABCDAV}
 
