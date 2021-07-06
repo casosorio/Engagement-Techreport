@@ -5,10 +5,10 @@ shorttitle        : "Title"
 author: 
   - name          : "Casey Osorio-Duffoo"
     affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
+    corresponding : yes    
     address       : "Postal address"
     email         : "caseyosorio@gmail.com"
-    role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
+    role:         
       - Conceptualization
       - Writing - Original Draft Preparation
       - Writing - Review & Editing
@@ -17,20 +17,26 @@ author:
     role:
       - Writing - Review & Editing
   - name          : "Renata Garcia Prieto Palacios Roji"
-    affiliation   : "2"
+    affiliation   : "3"
+    role:
+      - Conceptualization
+      - Writing - Review & Editing
   - name          : "John Kulas"
-    affiliation   : "2"
+    affiliation   : "4"
+    role:
+      - Conceptualization
+      - Writing - Review & Editing
     
 affiliation:
   - id            : "1"
     institution   : "Harver"
   - id            : "2"
     institution   : "Montclair State University"
-
-authornote: |
-  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-  Enter author note here.
+  - id            : "3"
+    institution   : "Montclair State University"
+  - id            : "4"
+    institution   : "Montclair State University"
+    
 
 abstract: |
   One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.

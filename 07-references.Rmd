@@ -72,10 +72,10 @@ Our four orderings of items were randomized within dimension (Affective, Behavio
 ```{r conditions, echo=FALSE, warning=FALSE, message=FALSE}
 
 
-cond1 <- read.csv("cond1.csv")
-cond2 <- read.csv("cond2.csv")
-cond3 <- read.csv("cond3.csv")
-cond4 <- read.csv("cond4.csv")
+cond1 <- read.csv("Data/Conditions/cond1.csv")
+cond2 <- read.csv("Data/Conditions/cond2.csv")
+cond3 <- read.csv("Data/Conditions/cond3.csv")
+cond4 <- read.csv("Data/Conditions/cond4.csv")
 
 library(kableExtra)
 
