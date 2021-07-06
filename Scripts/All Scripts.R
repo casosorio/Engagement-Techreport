@@ -78,6 +78,19 @@ together[ , i] <- apply(together[ , i], 2,            # Specify own function wit
 
 #write.csv(together, "together.csv")
 
+################## Recoding items #########################
+together$`Most days, I feel happiest when the workday is soon to be complete.` <- 7 - together$`Most days, I feel happiest when the workday is soon to be complete.`
+together$`This job drains my energy.` <- 7 - together$`This job drains my energy.`
+
+## BEHAVIORAL (NONE):
+
+## COGNITIVE: 
+
+together$`Thinking about work saps my energy.` <- 7 - together$`Thinking about work saps my energy.`
+together$`I often think about finding another job.` <- 7 - together$`I often think about finding another job.`
+
+
+
 ################### Item Drops ###################
 
 # Looking at R Drops to determine what Items to drop. 
@@ -109,60 +122,97 @@ cog.abs
 cog.vig
 cog.ded
 
-# 3 items
-####### Aff-Abs
-psych::alpha(together[,c(2,3,4)],check.keys = T) 
-psych::alpha(together[,c(2,3,5)],check.keys = T) 
-psych::alpha(together[,c(3,4,5)],check.keys = T) 
+## CFA Analysis
 
 
-####### Aff-Vig
-psych::alpha(together[,c(6,7,9)],check.keys = T) 
-psych::alpha(together[,c(6,8,9)],check.keys = T) 
-psych::alpha(together[,c(7,8,9)],check.keys = T) 
+#############Item Reduction-3 items #######################
+## Aff-Abs
+psych::alpha(together[,c(2,3,4)],check.keys = T) #alpha-.53, r.drops: .44, .34, .28
+psych::alpha(together[,c(2,3,5)],check.keys = T) #alpha-.66, r.drops: .55, .38, .50
+psych::alpha(together[,c(3,4,5)],check.keys = T) #alpha-.48, r.drops: .29, .26, .36
 
 
-####### Aff-Ded
-psych::alpha(together[,c(10,11,12)],check.keys = T) 
-psych::alpha(together[,c(10,12,13)],check.keys = T)
-psych::alpha(together[,c(11,12.13)],check.keys = T) 
+## Aff-Vig
+psych::alpha(together[,c(6,7,9)],check.keys = T) #alpha-.66, r.drops: .48, .60, .37
+psych::alpha(together[,c(6,8,9)],check.keys = T) #alpha-.55, r.drops: .48, .41, .23
+psych::alpha(together[,c(7,8,9)],check.keys = T) #alpha-.60, r.drops: .54, .36, .35
 
 
-###### Beh-Abs
-psych::alpha(together[,c(14,15,16)],check.keys = T) 
-psych::alpha(together[,c(14,16,17)],check.keys = T) 
-psych::alpha(together[,c(15,16,17)],check.keys = T)
+## Aff-Ded
+psych::alpha(together[,c(10,11,12)],check.keys = T) #alpha-.62, r.drops: .49, .35, .50
+psych::alpha(together[,c(10,12,13)],check.keys = T) #alpha-.80, r.drops: .65, .61, .68
+psych::alpha(together[,c(11,12,13)],check.keys = T) #alpha-.65, r.drops: .37, .52, .54
 
 
-###### Beh-vig
-psych::alpha(together[,c(18,19,20)],check.keys = T)
-psych::alpha(together[,c(18,20,21)],check.keys = T) 
-psych::alpha(together[,c(19,20,21)],check.keys = T)
-
-###### Bed-ded
-psych::alpha(together[,c(22,23,24)],check.keys = T) 
-psych::alpha(together[,c(22,24,25)],check.keys = T) 
-psych::alpha(together[,c(23,24,25)],check.keys = T)
+## Beh-Abs
+psych::alpha(together[,c(14,15,16)],check.keys = T) #alpha-.42, r.drops: .31, .38, .10
+psych::alpha(together[,c(14,16,17)],check.keys = T) #alpha-.46, r.drops: .20, .23, .44
+psych::alpha(together[,c(15,16,17)],check.keys = T) #alpha-.47, r.drops: .23, .29, .38
 
 
-###### Cog-Vig
-psych::alpha(together[,c(26,27,28)],check.keys = T) 
-psych::alpha(together[,c(26,27,29)],check.keys = T) 
-psych::alpha(together[,c(27,28,29)],check.keys = T)
+## Beh-vig
+psych::alpha(together[,c(18,19,20)],check.keys = T) #alpha-.69, r.drops: .50, .53, .54
+psych::alpha(together[,c(18,20,21)],check.keys = T) #alpha-.60, r.drops: .45, .45, .37
+psych::alpha(together[,c(19,20,21)],check.keys = T) #alpha-.62, r.drops: .48, .49, .37
 
-###### Cog-def
-psych::alpha(together[,c(30,31,32)],check.keys = T) 
-psych::alpha(together[,c(30,31.33)],check.keys = T) 
-psych::alpha(together[,c(31,32,33)],check.keys = T)
-
-###### Cog-abs
-psych::alpha(together[,c(34,35,36)],check.keys = T) 
-psych::alpha(together[,c(34,36,37)],check.keys = T)
-psych::alpha(together[,c(35,36,37)],check.keys = T) 
+## Bed-ded
+psych::alpha(together[,c(22,23,24)],check.keys = T) #alpha-.60, r.drops: .43, .49, .37
+psych::alpha(together[,c(22,24,25)],check.keys = T) #alpha-.56, r.drops: .25, .49, .41
+psych::alpha(together[,c(23,24,25)],check.keys = T) #alpha-.61, r.drops: .35, .51, .43
 
 
+## Cog-Vig
+psych::alpha(together[,c(26,27,28)],check.keys = T) #alpha-.41, r.drops: .27, .18, .28
+psych::alpha(together[,c(26,27,29)],check.keys = T) #alpha-.62, r.drops: .35, .33, .62
+psych::alpha(together[,c(27,28,29)],check.keys = T) #alpha-.55, r.drops: .36, .25, .49
+
+## Cog-def
+psych::alpha(together[,c(30,31,32)],check.keys = T) #alpha-.80, r.drops: .67, .61, .65
+psych::alpha(together[,c(30,31,33)],check.keys = T) #alpha-.80, r.drops: .59, .70, .66
+psych::alpha(together[,c(31,32,33)],check.keys = T) #alpha-.79, r.drops: .69, .56, .66
+
+## Cog-abs
+psych::alpha(together[,c(34,35,36)],check.keys = T) #alpha-.39, r.drops: .25, .09, .39
+psych::alpha(together[,c(34,36,37)],check.keys = T) #alpha-.33, r.drops: .22, .35, .03
+psych::alpha(together[,c(35,36,37)],check.keys = T) #alpha-.68, r.drops: .77, .12, .71
+
+### Looking at alpha all together
+#### Substantive
+##### Affective
+psych::alpha(together[,c(2,3,5,6,7,9,10,12,13)])
+
+##### Behavioral
+psych::alpha(together[,c(15,16,17,18,19,20,23,24,25)])
+
+##### Cognitive
+psych::alpha(together[,c(26,27,29,30,31,32,35,36,37)]) #alpha -.76
+psych::alpha(together[,c(26,27,29,30,31,33,35,36,37)]) #alpha -.77
+psych::alpha(together[,c(26,27,29,31,32,33,35,36,37)]) #alpha -.77
+
+#### Attitudinal
+##### Absorption
+psych::alpha(together[,c(2,3,5,15,16,17,35,36,37)])
+##### Dedication
+psych::alpha(together[,c(10,12,13,23,24,25,30,31,32)]) #alpha-.88
+psych::alpha(together[,c(10,12,13,23,24,25,30,31,33)]) #alpha-.89
+psych::alpha(together[,c(10,12,13,23,24,25,31,32,33)]) #alpha-.89
+##### Vigor
+psych::alpha(together[,c(6,7,9,18,19,20,26,27,29)]) #alpha-.83
 
 
+##### all together
+psych::alpha(together[,c(2,3,5,6,7,9,10,12,13,15,16,17,18,19,20,23,24,25,26,27,29,31,32,33,35,36,37)])
+
+### Creating CFA for three item response 
+library(lavaan)
+library(semPlot)
+
+
+
+
+
+
+############### Item Reduction- 2 Items #######################
 
 ####### Aff-Abs
 psych::alpha(together[,c(2,3)],check.keys = T) # Second Best
