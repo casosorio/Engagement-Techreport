@@ -373,7 +373,7 @@ Cognitive=~Item_2+Item_3+Item_4+Item_13+Item_14+Item_16+Item_26+Item_27+Item_28
 Affective=~Item_5+Item_6+Item_8+Item_17+Item_18+Item_20+Item_29+Item_31+Item_32
 Behavioral=~Item_10+Item_11+Item_12+Item_21+Item_22+Item_23+Item_34+Item_35+Item_36
 '
-Fit1.2<-lavaan::cfa(Att_Model_ItemReduction3, data = Reduction_3Items)
+Fit1.4<-lavaan::cfa(Att_Model_ItemReduction3, data = Reduction_3Items)
 semPlot::semPaths(Fit1.2,"std")
 lavaan::fitMeasures(Fit1.2)
 summary(Fit1.2, fit.measure=TRUE)
@@ -488,10 +488,10 @@ psych::alpha(together[,c(32,33)],check.keys = T) #alpha -.64, r.drops -.48, .48
 
 ###### Cog-abs
 psych::alpha(together[,c(34,35)],check.keys = T) #alpha -.02, r.drops -.01, .01
-psych::alpha(together[,c(34,36)],check.keys = T) #alpha -.58, r.drops -.42, .42
+psych::alpha(together[,c(34,36)],check.keys = T) #alpha -.58, r.drops -.42, .42, Second best option
 psych::alpha(together[,c(34,37)],check.keys = T) #alpha -.04, r.drops -.02, .02
 psych::alpha(together[,c(35,36)],check.keys = T) #alpha -.25, r.drops -.15, .15
-psych::alpha(together[,c(35,37)],check.keys = T) #alpha -.94, r.drops -.89, .89
+psych::alpha(together[,c(35,37)],check.keys = T) #alpha -.94, r.drops -.89, .89, Considering that these two items are extremely similar, we are going with the second best option
 psych::alpha(together[,c(36,37)],check.keys = T) #alpha -.16, r.drops -.09, .09
 
 
@@ -506,13 +506,15 @@ psych::alpha(together[,c(14,15,19,20,22,23)]) #alpha -.71
 psych::alpha(together[,c(16,17,19,20,22,23)]) #alpha -.69
 
 ##### Cognitive
-psych::alpha(together[,c(26,29,31,33,35,37)]) 
-
+psych::alpha(together[,c(26,29,31,33,35,37)]) #alpha-.7
+psych::alpha(together[,c(26,29,31,33,34,36)]) #alpha-.79
 
 #### Attitudinal
 ##### Absorption
 psych::alpha(together[,c(2,5,14,15,35,37)]) #alpha -.72
 psych::alpha(together[,c(2,5,16,17,35,37)]) #alpha -.61
+psych::alpha(together[,c(2,5,14,15,34,36)]) #alpha -.69
+psych::alpha(together[,c(2,5,16,17,34,36)]) #alpha -.71
 ##### Dedication
 psych::alpha(together[,c(10,13,22,23,31,33)]) 
 ##### Vigor
@@ -520,15 +522,16 @@ psych::alpha(together[,c(6,7,19,20,26,29)])
 
 
 ##### all together
-psych::alpha(together[,c(2,5,6,7,10,13,14,15,19,20,22,23,26,29,31,33,35,37)])
+psych::alpha(together[,c(2,5,6,7,10,13,14,15,19,20,22,23,26,29,31,33,35,37)]) #alpha-.89
+psych::alpha(together[,c(2,5,6,7,10,13,14,15,19,20,22,23,26,29,31,33,34,36)]) #alpha-.90
 
-Reduction_2Items<-together[,c(2,5,6,7,10,13,14,15,19,20,22,23,26,29,31,33,35,37)]
+Reduction_2Items<-together[,c(2,5,6,7,10,13,14,15,19,20,22,23,26,29,31,33,34,36)]
 
 Reduction_2Items<-Reduction_2Items%>%rename(
- # Item_1=`Iâ€™m able to concentrate on my work without distractions.`,
-  Item_2=`I have a hard time detaching mentally from my work.`,
- # Item_3=`Time passes quickly while Iâ€™m working.`,
-  Item_4=`I find it difficult to mentally disconnect from work.`,
+  Item_1=`Iâ€™m able to concentrate on my work without distractions.`,
+ # Item_2=`I have a hard time detaching mentally from my work.`,
+  Item_3=`Time passes quickly while Iâ€™m working.`,
+ # Item_4=`I find it difficult to mentally disconnect from work.`,
   Item_5=`I enjoy thinking about work even when Iâ€™m not at work.`,
  # Item_6=`Most days, I feel happiest when the workday is soon to be complete.`,
  # Item_7=`I am happiest when I am immersed in a project.`,
@@ -563,8 +566,10 @@ Reduction_2Items<-Reduction_2Items%>%rename(
  # Item_36=`This organization provides the resources necessary for me to successfully perform my job.`
 )
 
+
+
 Sub_Model_ItemReduction2<-'
-Absorption=~Item_2+Item_4+Item_5+Item_8+Item_9+Item_10
+Absorption=~Item_1+Item_3+Item_5++Item_8+Item_9+Item_10
 Vigor=~Item_13+Item_16+Item_17+Item_18+Item_22+Item_23
 Dedication=~Item_26+Item_28+Item_29+Item_32+Item_33+Item_34
 '
@@ -575,7 +580,7 @@ lavaan::fitMeasures(Fit1.4)
 summary(Fit1.4, fit.measure=TRUE)
 
 Att_Model_ItemReduction2<-'
-Cognitive=~Item_2+Item_4+Item_13+Item_16+Item_26+Item_28
+Cognitive=~Item_1+Item_3+Item_13+Item_16+Item_26+Item_28
 Affective=~Item_5+Item_8+Item_17+Item_18+Item_29+Item_32
 Behavioral=~Item_9+Item_10+Item_22+Item_23+Item_33+Item_34
 '
@@ -587,10 +592,10 @@ summary(Fit1.5, fit.measure=TRUE)
 
 #### Bifactor model 2 items
 Bifactor_Model3<-'
-Cognitive=~Item_2+Item_4+Item_13+Item_16+Item_26+Item_28
+Cognitive=~Item_1+Item_3+Item_13+Item_16+Item_26+Item_28
 Affective=~Item_5+Item_8+Item_17+Item_18+Item_29+Item_32
 Behavioral=~Item_9+Item_10+Item_22+Item_23+Item_33+Item_34
-Absorption=~Item_2+Item_4+Item_5+Item_8+Item_9+Item_10
+Absorption=~Item_1+Item_3+Item_5++Item_8+Item_9+Item_10
 Vigor=~Item_13+Item_16+Item_17+Item_18+Item_22+Item_23
 Dedication=~Item_26+Item_28+Item_29+Item_32+Item_33+Item_34
 Absorption ~~ 0*Affective
