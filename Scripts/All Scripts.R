@@ -614,7 +614,7 @@ Fit.Bi3 <- lavaan::cfa(Bifactor_Model3, data = Reduction_2Items) #, likelihood =
 
 semPlot::semPaths(Fit.Bi3, bifactor = c("Cognitive", "Affective", "Behavioral"), "std", layout = "tree3", 
                   rotation = 2, curvePivot=TRUE, style="lisrel", nCharNodes = 0)  ## exoCov=FALSE deletes all covariances
-title("Initial pilot bifactor analysis (36 candidate items)")
+title("Initial pilot bifactor analysis (18 candidate items)")
 
 modindices(Fit.Bi3, sort = TRUE, maximum.number = 5)
 
