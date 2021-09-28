@@ -575,6 +575,7 @@ summary(Fit.Bi12)
 ### Bifactor Model 12th 18 items - Removing items 32 and 26, for item 30 and 25______________________________________
 psych::alpha(CFAdata[,c(1,3,5,8,9,10,13,16,17,18,22,23,25,28,29,30,33,34)],check.keys=T) # raw alpha: .89
 
+###########################best model!!!!!!!
 Bifactor_Model13<-'
 Absorption=~Item_1+Item_3+Item_5+Item_8+Item_9+Item_10
 Vigor=~Item_13+Item_16+Item_17+Item_18+Item_22+Item_23
@@ -593,7 +594,7 @@ Dedication ~~ 0*Behavioral
 Dedication ~~ 0*Cognitive
 '
 
-Fit.Bi13 <- lavaan::cfa(Bifactor_Model13, data = CFAdata) #, likelihood = "wishart")
+Fit.Bi13 <- lavaan::cfa(Bifactor_Model13, data = CFAdata, missing = "ML") #, likelihood = "wishart")
 
 semPlot::semPaths(Fit.Bi13, bifactor = c("Cognitive", "Affective", "Behavioral"), "std", layout = "tree3", 
                   rotation = 2, curvePivot=TRUE, style="lisrel", nCharNodes = 0)  ## exoCov=FALSE deletes all covariances
@@ -695,3 +696,26 @@ title("Initial pilot bifactor analysis (18 candidate items)")
 modindices(Fit.Bi16, sort = TRUE, maximum.number = 5)
 
 summary(Fit.Bi16)
+
+Bifactor_Model16<-'
+Absorption=~Item_+Item_3+Item_5+Item_8+Item_9+Item_10
+Vigor=~Item_13+Item_16+Item_17+Item_18+Item_21+Item_2
+Dedication=~Item_25+Item_28+Item_30+Item_31+Item_33+Item_34
+Cognitive=~Item_1+Item_3+Item_13+Item_16+Item_25+Item_28
+Affective=~Item_5+Item_8+Item_17+Item_18+Item_30+Item_31
+Behavioral=~Item_9+Item_10+Item_22+Item_23+Item_33+Item_34
+Absorption ~~ 0*Affective
+Absorption ~~ 0*Behavioral
+Absorption ~~ 0*Cognitive
+Vigor ~~ 0*Affective
+Vigor ~~ 0*Behavioral
+Vigor ~~ 0*Cognitive
+Dedication ~~ 0*Affective
+Dedication ~~ 0*Behavioral
+Dedication ~~ 0*Cognitive
+'
+
+Fit.Bi16 <- lavaan::cfa(Bifactor_Model16, data = CFAdata) #, likelihood = "wishart")
+
+semPlot::semPaths(Fit.Bi16, bifactor = c("Cognitive", "Affective", "Behavioral"), "std", layout = "tree3", 
+                  rotation = 2, curvePivot=TRUE, style="lisrel", nCharNodes = 0)
